@@ -3,11 +3,12 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField
 from wtforms.validators import InputRequired, Length
 from flask_sqlalchemy import SQLAlchemy
+from os import environ
 
 
 app = Flask(__name__)
-app.config['SECRET_KEY'] = 'Thisismysecretkey'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@127.0.0.1:3308/snapchat'
+app.config['SECRET_KEY'] = environ['SECRET_KEY']
+app.config['SQLALCHEMY_DATABASE_URI'] = environ['DATABASE_URL'][0:8] + 'ql' + environ['DATABASE_URL'][8:]
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
