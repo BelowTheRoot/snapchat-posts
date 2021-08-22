@@ -1,8 +1,4 @@
-**Welcome to Snapchat clone project **
+#Snapchat Login Clone 
 
-To run this project you need to install the following libraries:
-
-(1)- Flask:
- pip install flask
------------------------------------------------
+## This is a login page clone 
 
